@@ -1,3 +1,5 @@
+I take no credit whatsoever for this package, original package was developed by "Zenek Palmer", and original repository can be found [here](https://github.com/FbF/Laravel-Solarium/tree/master/src). I just changed the illuminate/support dependency from version `4.*` to `5.*`, to make it work in my project. I didn't have time to ask for formal permission and I needed it really quick. Sorry if this cause any inconvenience to anyone.
+
 Laravel-Solarium
 ================
 Laravel Framework package for using Solarium

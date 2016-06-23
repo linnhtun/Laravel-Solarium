@@ -1,6 +1,6 @@
 {
-    "name": "fbf/laravel-solarium",
-    "description": "Laravel Framework package for using Solarium",
+    "name": "laravel-5-solarium",
+    "description": "Laravel Framework package for using Solarium. Just changing illuminate/support dependency to 5.* to make it work on laravel 5.*.",
     "license" : "MIT",
     "authors": [
         {
@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/support": "4.*",
+        "illuminate/support": "5.*",
         "solarium/solarium": "~3.2"
     },
     "autoload": {
