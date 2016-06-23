@@ -19,8 +19,6 @@ class LaravelSolariumServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 
-		$this->package('devine/laravel-5-solarium');
-
     $this->publishes([
         __DIR__.'/../../config/config.php' => config_path('laravel-solarium.php')
     ]);
