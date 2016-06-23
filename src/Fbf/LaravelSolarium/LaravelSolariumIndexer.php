@@ -9,7 +9,7 @@ class LaravelSolariumIndexer {
 
     public function __construct()
     {
-        $this->_config = Config::get('laravel-solarium::solr');
+        $this->_config = Config::get('laravel-5-solarium.solr');
     }
 
     public function update($index_data, $core)

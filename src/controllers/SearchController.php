@@ -8,7 +8,7 @@ class SearchController extends \BaseController {
 
 	    if ( \Input::has('term') )
         {
-            $solr = new LaravelSolariumQuery(\Config::get('laravel-solarium::default_core'));
+            $solr = new LaravelSolariumQuery(\Config::get('laravel-5-solarium.default_core'));
 
             $searchInput = \Input::get('term');
 
@@ -25,7 +25,7 @@ class SearchController extends \BaseController {
 
             $searchTerm .= ' AND status:"APPROVED"';
 
-            $resultsPerPage = \Config::get('laravel-solarium::results.items_per_page');
+            $resultsPerPage = \Config::get('laravel-5-solarium.results.items_per_page');
 
             $results = $solr->search($searchTerm)
                 ->fields(array('id', 'title', 'content', 'url'))
@@ -42,7 +42,7 @@ class SearchController extends \BaseController {
             );
         }
 
-		$viewFile = \Config::get('laravel-solarium::results.view');
+		$viewFile = \Config::get('laravel-5-solarium.results.view');
 
         return \View::make($viewFile)->with(compact('results', 'paginator', 'highlighting'));
 	}

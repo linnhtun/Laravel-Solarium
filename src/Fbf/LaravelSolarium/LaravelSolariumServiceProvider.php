@@ -18,14 +18,24 @@ class LaravelSolariumServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('fbf/laravel-solarium');
 
-        if (\Config::get('laravel-solarium::use_package_routes', true))
+		$this->package('devine/laravel-5-solarium');
+
+    $this->publishes([
+        __DIR__.'/../../config/config.php' => config_path('laravel-solarium.php')
+    ]);
+
+    $this->loadViewFrom(__DIR__."/../../views", 'laravel-5-solarium');
+
+    $this->publishes([
+      __DIR__.'/../../views' => base_path('resources/views/vendor/laravel-5-solarium')]);
+
+        if (\Config::get('laravel-5-solarium.use_package_routes', true))
 		{
 		    include __DIR__.'/../../routes.php';
         }
 
-		$models = \Config::get('laravel-solarium::models');
+		$models = \Config::get('laravel-5-solarium.models');
 
         if ( empty($models) || ! is_array($models) )
         {

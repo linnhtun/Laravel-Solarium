@@ -32,7 +32,7 @@ class LaravelSolariumQuery {
     {
         $this->_core = $core;
 
-        $this->_config = Config::get('laravel-solarium::solr');
+        $this->_config = Config::get('laravel-5-solarium.solr');
 
         $this->_reset();
     }
@@ -138,7 +138,7 @@ class LaravelSolariumQuery {
             return FALSE;
         }
 
-        $config = Config::get('laravel-solarium::solr');
+        $config = Config::get('laravel-5-solarium.solr');
 
         $config['endpoint']['localhost']['path'] = '/solr/'.$this->_core.'/';
 
