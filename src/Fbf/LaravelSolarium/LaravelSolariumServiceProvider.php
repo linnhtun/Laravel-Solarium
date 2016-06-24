@@ -23,7 +23,7 @@ class LaravelSolariumServiceProvider extends ServiceProvider {
         __DIR__.'/../../config/config.php' => config_path('laravel-solarium.php')
     ]);
 
-    $this->loadViewFrom(__DIR__."/../../views", 'laravel-5-solarium');
+    $this->loadViewsFrom(__DIR__."/../../views", 'laravel-5-solarium');
 
     $this->publishes([
       __DIR__.'/../../views' => base_path('resources/views/vendor/laravel-5-solarium')]);
