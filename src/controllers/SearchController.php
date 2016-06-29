@@ -45,8 +45,6 @@ class SearchController extends BaseController {
             );
         }
 
-		$viewFile = \Config::get('laravel-5-solarium.results.view');
-
-        return \View::make($viewFile)->with(compact('results', 'paginator', 'highlighting'));
+        return response()->json(compact('results', 'paginator', 'highlighting'));
 	}
 }

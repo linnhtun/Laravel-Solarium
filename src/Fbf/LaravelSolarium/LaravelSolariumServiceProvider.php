@@ -25,9 +25,6 @@ class LaravelSolariumServiceProvider extends ServiceProvider {
 
     $this->loadViewsFrom(__DIR__."/../../views", 'laravel-5-solarium');
 
-    $this->publishes([
-      __DIR__.'/../../views' => base_path('resources/views/vendor/laravel-5-solarium')]);
-
         if (\Config::get('laravel-5-solarium.use_package_routes', true))
 		{
 		    include __DIR__.'/../../routes.php';

@@ -79,7 +79,6 @@ return array(
         ),
     ),
 	'results' => array(
-		'view' => 'laravel-solarium::results',
 		'items_per_page' => 10,
 	),
 	'uri' => 'search',
