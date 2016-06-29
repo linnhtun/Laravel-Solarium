@@ -32,19 +32,18 @@ class SearchController extends BaseController {
             $results = $solr->search($searchTerm)
                 ->fields(array('id', 'title', 'content', 'url'))
                 ->page($request->get('page', 1), $resultsPerPage)
-                ->highlight(array('content'))
                 ->get();
 
-            $highlighting = $results->getHighlighting();
-
             $paginator = new Paginator(
-                $results->getDocuments(),
+                collect($results->getDocuments())->map(function($doc) { return $doc->getFields(); }),
                 $resultsPerPage,
                 $request->get('page', 1),
                 array()
             );
+
+            $results = collect($results->getDocuments())->map(function($doc) { return $doc->getFields(); });
         }
 
-        return response()->json(compact('results', 'paginator', 'highlighting'));
+        return response()->json(compact('results', 'paginator'));
 	}
 }
