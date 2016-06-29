@@ -1,3 +1,3 @@
 <?php
 
-Route::get(Config::get('laravel-solarium::uri'), 'Fbf\LaravelSolarium\SearchController@results');
+Route::get(Config::get('laravel-5-solarium.uri'), 'Fbf\LaravelSolarium\SearchController@results');
