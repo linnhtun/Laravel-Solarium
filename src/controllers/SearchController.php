@@ -27,8 +27,6 @@ class SearchController extends BaseController {
 
             $searchTerm = implode(' OR ', $searchTermArray);
 
-            $searchTerm .= ' AND status:"APPROVED"';
-
             $resultsPerPage = \Config::get('laravel-5-solarium.results.items_per_page');
 
             $results = $solr->search($searchTerm)
