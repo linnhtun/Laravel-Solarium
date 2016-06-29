@@ -1,6 +1,8 @@
 <?php namespace Fbf\LaravelSolarium;
 
-class SearchController extends \BaseController {
+use Illuminate\Routing\Controller as BaseController;
+
+class SearchController extends BaseController {
 
 	public function results()
 	{
