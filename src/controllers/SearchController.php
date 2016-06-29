@@ -22,7 +22,7 @@ class SearchController extends BaseController {
 
             foreach ( $searchArray as $term )
             {
-                $searchTermArray[] = 'search_content:"'.trim($term).'"';
+                $searchTermArray[] = 'search_content:*'.trim($term).'*';
             }
 
             $searchTerm = implode(' OR ', $searchTermArray);
