@@ -14,7 +14,7 @@ class SearchController extends BaseController {
         {
             $solr = new LaravelSolariumQuery(\Config::get('laravel-5-solarium.default_core'));
 
-            $searchInput = $reqest->get('term');
+            $searchInput = $request->get('term');
 
             $searchArray = explode(' ', $searchInput);
 
