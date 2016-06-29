@@ -1,18 +1,20 @@
 <?php namespace Fbf\LaravelSolarium;
 
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class SearchController extends BaseController {
 
-	public function results()
+	public function results(Request $request)
 	{
 		$results = $paginator = false;
 
-	    if ( \Input::has('term') )
+	    if ( $request->has('term') )
         {
             $solr = new LaravelSolariumQuery(\Config::get('laravel-5-solarium.default_core'));
 
-            $searchInput = \Input::get('term');
+            $searchInput = $reqest->get('term');
 
             $searchArray = explode(' ', $searchInput);
 
@@ -31,16 +33,17 @@ class SearchController extends BaseController {
 
             $results = $solr->search($searchTerm)
                 ->fields(array('id', 'title', 'content', 'url'))
-                ->page(\Input::get('page', 1), $resultsPerPage)
+                ->page($request->get('page', 1), $resultsPerPage)
                 ->highlight(array('content'))
                 ->get();
 
             $highlighting = $results->getHighlighting();
 
-            $paginator = \Paginator::make(
+            $paginator = new Paginator(
                 $results->getDocuments(),
-                $results->getNumFound(),
-                $resultsPerPage
+                $resultsPerPage,
+                $request->get('page', 1),
+                array()
             );
         }
 
