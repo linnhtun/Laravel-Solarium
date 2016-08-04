@@ -47,10 +47,6 @@ class LaravelSolariumQuery {
 
         $this->_order_by_direction = FALSE;
 
-        $this->_start_index = 1;
-
-        $this->_count_index = 10;
-
         $this->_filters = array();
     }
 
@@ -155,7 +151,9 @@ class LaravelSolariumQuery {
         $query->setQuery($this->_search_term);
 
         // set start and rows param (comparable to SQL limit) using fluent interface
-        $query->setStart( $this->_start_index )->setRows($this->_count_index);
+        if(!empty($this->_start_index)) {
+            $query->setStart( $this->_start_index )->setRows($this->_count_index);
+        }
 
         if ( is_array($this->_fields) && ! empty($this->_fields) )
         {
