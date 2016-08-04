@@ -1,6 +1,6 @@
 {
-    "name": "devine/laravel-5-solarium",
-    "description": "Laravel Framework package for using Solarium. Just changing illuminate/support dependency to 5.* to make it work on laravel 5.*.",
+    "name": "linnhtun/laravel-5-solarium",
+    "description": "Laravel Framework package for using Solarium. Just changing illuminate/support dependency to 5.* to make it work on laravel 5.* and removed paging",
     "license" : "MIT",
     "authors": [
         {
