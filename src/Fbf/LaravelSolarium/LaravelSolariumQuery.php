@@ -150,8 +150,8 @@ class LaravelSolariumQuery {
 
         $query->setQuery($this->_search_term);
 
-        // set start and rows param (comparable to SQL limit) using fluent interface
         if(!empty($this->_start_index)) {
+            // set start and rows param (comparable to SQL limit) using fluent interface
             $query->setStart( $this->_start_index )->setRows($this->_count_index);
         }
 
